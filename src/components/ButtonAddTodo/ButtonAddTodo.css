@@ -26,6 +26,10 @@
     box-shadow: 5px 5px 10px rgb(192, 191, 191)
 }
 
+.content-button-img button:hover {
+    background-color: rgb(199, 200, 203);
+}
+
 .conteiner-img {
     max-width: 100%;
     height: auto;

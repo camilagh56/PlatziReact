@@ -1,10 +1,10 @@
 import { ContentTodoImg } from "../ContentTodoImg/ContentTodoImg";
 import "./Container.css"
 
-const Container = () => {
+const Container = ({arrayTodos, searchTodo}) => {
   return (
     <div className="container">
-      <ContentTodoImg />
+      <ContentTodoImg  arrayTodos={arrayTodos} searchTodo={searchTodo}/>
     </div>
   );
 };

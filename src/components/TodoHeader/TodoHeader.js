@@ -1,20 +1,25 @@
 import React from "react";
 import "./TodoHeader.css";
+import { TodoSearch } from "../TodoSearch/TodoSearch";
 
-const TodoHeader = () => {
+const TodoHeader = (props) => {
+  console.log(props, "props de header");
   return (
     <div className="conteiner-input-header">
       <div className="div-content-header">
         <header>
           <span className="todoS">
-            Has completado <span className="span-todo">5</span> de{" "}
-            <span className="span-todo">10</span> TODOs
+            Has completado{" "}
+            <span className="span-todo">{props.status.tdosCompleted}</span> de{" "}
+            <span className="span-todo">{props.status.tdosTotal}</span> TODOs
           </span>
         </header>
       </div>
-      <div className="content-img-search">
-        <img src="https://cdn-icons-png.flaticon.com/512/25/25313.png" />
-        <input className="input-search" placeholder="Cortar cebolla..." />
+      <div>
+        <TodoSearch
+          searchValue={props.searchValue}
+          setSearchValue={props.setSearchValue}
+        />
       </div>
     </div>
   );

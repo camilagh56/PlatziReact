@@ -35,3 +35,19 @@
     display: inline-block;
     justify-content: start;
 }
+
+.TodoItem-p--complete {
+    text-decoration: line-through;
+}
+
+.Icon-check--active {
+    color: #4caf50;
+}
+
+.icon-completed:hover {
+    color: #4caf50;
+}
+
+.Icon-delete:hover {
+    color: red;
+}

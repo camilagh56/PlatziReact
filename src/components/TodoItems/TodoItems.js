@@ -1,24 +1,33 @@
 import "./TodoItem.css";
 
-const TodoItem = () => {
-  const arrayTodos = [
-    { text: "Jugar con Apolito", complete: false },
-    { text: "Dormir", complete: true },
-    { text: "Comer", complete: true },
-    { text: "Estudiar", complete: true },
-    { text: "Tomar agua", complete: true },
-  ];
-
+const TodoItem = ({arrayTodos, searchTodo}) => {
+  console.log(searchTodo);
+  
   return (
     <div className="div-content-todo">
-      {arrayTodos.map((todo) => (
+      {/* <TodoHeader status={count}/> */}
+      {searchTodo.map((todo) => (
         <ul className="ul-list">
           <div className="conteiner-span">
             <section className="section-li">
-              <li className="li-text">{todo.text}</li>
+              <li className="li-text">
+                <p
+                  className={`TodoItem-p ${
+                    todo.complete && "TodoItem-p--complete"
+                  }`}
+                >
+                  {todo.text}
+                </p>
+              </li>
             </section>
-            <span>✔</span>
-            <span>✘</span>
+            <span
+              className={`Icon Icon-check icon-completed ${
+                todo.complete && "Icon-check--active"
+              }`}
+            >
+              ✔
+            </span>
+            <span className={`Icon Icon-delete`}>✘</span>
           </div>
         </ul>
       ))}
