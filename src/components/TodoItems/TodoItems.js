@@ -1,8 +1,7 @@
 import "./TodoItem.css";
 
-const TodoItem = ({arrayTodos, searchTodo}) => {
-  console.log(searchTodo);
-  
+const TodoItem = ({ searchTodo, onCompletedTodo}) => {
+
   return (
     <div className="div-content-todo">
       {/* <TodoHeader status={count}/> */}
@@ -24,6 +23,7 @@ const TodoItem = ({arrayTodos, searchTodo}) => {
               className={`Icon Icon-check icon-completed ${
                 todo.complete && "Icon-check--active"
               }`}
+              onClick={() => onCompletedTodo(todo.text)}
             >
               ✔
             </span>

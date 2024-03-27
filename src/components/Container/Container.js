@@ -1,10 +1,13 @@
 import { ContentTodoImg } from "../ContentTodoImg/ContentTodoImg";
-import "./Container.css"
+import "./Container.css";
 
-const Container = ({arrayTodos, searchTodo}) => {
+const Container = ({ searchTodo, onCompletedTodo }) => {
   return (
     <div className="container">
-      <ContentTodoImg  arrayTodos={arrayTodos} searchTodo={searchTodo}/>
+      <ContentTodoImg
+        searchTodo={searchTodo}
+        onCompletedTodo={onCompletedTodo}
+      />
     </div>
   );
 };

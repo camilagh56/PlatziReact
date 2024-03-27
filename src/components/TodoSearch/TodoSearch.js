@@ -6,7 +6,6 @@ const TodoSearch = (props) => {
   const changeInput = (event) => {
     props.setSearchValue(event.target.value)
   }
-  console.log("Buscasteeee", props.searchValue);
 
   return (
     <div className="content-img-search">

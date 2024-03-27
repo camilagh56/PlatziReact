@@ -3,22 +3,22 @@ import { Container } from "../Container/Container";
 import "./TodoContent.css";
 import { useState, useEffect } from "react";
 
-const TodoContent = () => {
-  const arrayTodos = [
-    { text: "Jugar con Apolito", complete: false },
-    { text: "Dormir", complete: true },
-    { text: "Comer", complete: true },
-    { text: "Estudiar", complete: false },
-    { text: "Tomar agua", complete: false },
-  ];
+const arrayTodos = [
+  { text: "Jugar con Apolito", complete: false },
+  { text: "Dormir", complete: true },
+  { text: "Comer", complete: true },
+  { text: "Estudiar", complete: false },
+  { text: "Tomar agua", complete: false },
+];
 
+const TodoContent = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [todos, setTodos] = useState([...arrayTodos]);
+  const [todos, setTodos] = useState(arrayTodos);
   const [count, setCount] = useState();
-  console.log(todos);
+
   useEffect(() => {
-    const completedTodos = arrayTodos.filter((todo) => !!todo.complete).length;
-    const totalTodos = arrayTodos.length;
+    const completedTodos = todos.filter((todo) => !!todo.complete).length;
+    const totalTodos = todos.length;
     const objCount = {
       tdosCompleted: completedTodos,
       tdosTotal: totalTodos,
@@ -26,10 +26,18 @@ const TodoContent = () => {
     setCount({ ...objCount });
   }, []);
 
-  const searchTodo = arrayTodos.filter((todo) => {
-  return todo.text.includes(searchValue)
-  })
-  
+  const searchTodo = todos.filter((todo) => {
+    return todo.text.toLowerCase().includes(searchValue.toLowerCase());
+  });
+
+  const completeTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.text == text);
+    newTodos[todoIndex].complete = true;
+    console.log(newTodos, "aqui newTodos");
+    setTodos(newTodos);
+  };
+
   return (
     <div className="container-app">
       {count && (
@@ -39,7 +47,10 @@ const TodoContent = () => {
           setSearchValue={setSearchValue}
         />
       )}
-      <Container arrayTodos={arrayTodos} searchTodo={searchTodo} />
+      <Container
+        searchTodo={searchTodo}
+        onCompletedTodo={completeTodo}
+      />
     </div>
   );
 };
