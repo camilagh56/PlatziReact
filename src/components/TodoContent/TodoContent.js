@@ -4,6 +4,7 @@ import "./TodoContent.css";
 import { useState, useEffect } from "react";
 
 const TodoContent = () => {
+
   const arrayTodos = [
     { text: "Jugar con Apolito", complete: false },
     { text: "Dormir", complete: true },
@@ -15,7 +16,7 @@ const TodoContent = () => {
   const [searchValue, setSearchValue] = useState("");
   const [todos, setTodos] = useState([...arrayTodos]);
   const [count, setCount] = useState();
-  console.log(todos);
+
   useEffect(() => {
     const completedTodos = arrayTodos.filter((todo) => !!todo.complete).length;
     const totalTodos = arrayTodos.length;
@@ -32,12 +33,15 @@ const TodoContent = () => {
     return todoText.includes(searchText);
   });
 
-  const completedTodos = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.find((todo) => todo.text == text);
+  const completeTodo = (text) => {
+    const newTodos = [...arrayTodos];
+    console.log(newTodos, "aqui array todos");
+    const todoIndex = newTodos.findIndex((todo) => {
+      return todo.text == text
+    })
     newTodos[todoIndex].complete = true;
     setTodos(newTodos);
-  };
+  }
 
   return (
     <div className="container-app">
@@ -51,7 +55,7 @@ const TodoContent = () => {
       <Container
         arrayTodos={arrayTodos}
         searchTodo={searchTodo}
-        onComplete={completedTodos}
+        completeTodo={() => completeTodo(todos.text)}
       />
     </div>
   );

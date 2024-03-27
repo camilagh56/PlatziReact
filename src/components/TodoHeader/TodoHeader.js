@@ -3,7 +3,6 @@ import "./TodoHeader.css";
 import { TodoSearch } from "../TodoSearch/TodoSearch";
 
 const TodoHeader = (props) => {
-  console.log(props, "props de header");
   return (
     <div className="conteiner-input-header">
       <div className="div-content-header">

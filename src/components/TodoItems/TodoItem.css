@@ -1,53 +1,57 @@
 .div-content-todo {
-    /* background-color: brown; */
-    width: 30%;
-    margin-left: 20%;
-    /* background-color: red; */
+  /* background-color: brown; */
+  width: 30%;
+  margin-left: 20%;
+  /* background-color: red; */
 }
 
 .ul-list {
-    list-style: none;
-    padding-left: 0;
-    background-color: #D3D8F5;
-    /* background-color: aqua; */
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 5px 5px 10px rgb(192, 191, 191)
+  list-style: none;
+  padding-left: 0;
+  background-color: #d3d8f5;
+  /* background-color: aqua; */
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgb(192, 191, 191);
 }
 
 .li-text {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    text-align: start;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: start;
 }
 
 .conteiner-span {
-    /* background-color: blue; */
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: end;
+  /* background-color: blue; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: end;
 }
 
 .section-li {
-    width: 100%;
-    /* background-color: blueviolet; */
-    display: inline-block;
-    justify-content: start;
+  width: 100%;
+  /* background-color: blueviolet; */
+  display: inline-block;
+  justify-content: start;
 }
 
 .TodoItem-p--complete {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .Icon-check--active {
-    color: #4caf50;
+  color: #4caf50;
+}
+
+.icon-completed {
+  cursor: pointer;
 }
 
 .icon-completed:hover {
-    color: #4caf50;
+  color: #4caf50;
 }
 
 .Icon-delete:hover {
-    color: red;
+  color: red;
 }
