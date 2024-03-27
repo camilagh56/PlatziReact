@@ -27,9 +27,18 @@ const TodoContent = () => {
   }, []);
 
   const searchTodo = arrayTodos.filter((todo) => {
-  return todo.text.includes(searchValue)
-  })
-  
+    const todoText = todo.text.toLowerCase();
+    const searchText = searchValue.toLowerCase();
+    return todoText.includes(searchText);
+  });
+
+  const completedTodos = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.find((todo) => todo.text == text);
+    newTodos[todoIndex].complete = true;
+    setTodos(newTodos);
+  };
+
   return (
     <div className="container-app">
       {count && (
@@ -39,7 +48,11 @@ const TodoContent = () => {
           setSearchValue={setSearchValue}
         />
       )}
-      <Container arrayTodos={arrayTodos} searchTodo={searchTodo} />
+      <Container
+        arrayTodos={arrayTodos}
+        searchTodo={searchTodo}
+        onComplete={completedTodos}
+      />
     </div>
   );
 };
