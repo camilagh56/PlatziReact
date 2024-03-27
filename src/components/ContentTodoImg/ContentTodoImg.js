@@ -2,13 +2,12 @@ import { TodoItem } from "../TodoItems/TodoItems";
 import { ButtonAddTodo } from "../ButtonAddTodo/ButtonAddTodo";
 import "./ContectTodoImg.css";
 
-const ContentTodoImg = ({ arrayTodos, searchTodo, completeTodo }) => {
+const ContentTodoImg = ({ searchTodo, onCompletedTodo }) => {
   return (
     <div className="content-todo">
       <TodoItem
-        arrayTodos={arrayTodos}
         searchTodo={searchTodo}
-        completeTodo={completeTodo}
+        onCompletedTodo={onCompletedTodo}
       />
       <ButtonAddTodo />
     </div>

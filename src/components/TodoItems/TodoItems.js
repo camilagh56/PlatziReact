@@ -1,6 +1,6 @@
 import "./TodoItem.css";
 
-const TodoItem = ({arrayTodos, searchTodo, completeTodo}) => {
+const TodoItem = ({ searchTodo, onCompletedTodo}) => {
 
   return (
     <div className="div-content-todo">
@@ -23,7 +23,7 @@ const TodoItem = ({arrayTodos, searchTodo, completeTodo}) => {
               className={`Icon Icon-check icon-completed ${
                 todo.complete && "Icon-check--active"
               }`}
-              onClick={completeTodo}
+              onClick={() => onCompletedTodo(todo.text)}
             >
               ✔
             </span>
