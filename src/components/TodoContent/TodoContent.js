@@ -37,6 +37,15 @@ const TodoContent = () => {
     setTodos(newTodos);
   };
 
+  const deletedTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.text == text);
+    newTodos.splice(todoIndex, 1)
+    setTodos(newTodos);
+  };
+
+ 
+
   return (
     <div className="container-app">
       {count && (
@@ -49,6 +58,7 @@ const TodoContent = () => {
       <Container
         searchTodo={searchTodo}
         onCompletedTodo={completeTodo}
+        deletedTodo={deletedTodo}
       />
     </div>
   );

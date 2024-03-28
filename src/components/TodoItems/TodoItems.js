@@ -1,6 +1,6 @@
 import "./TodoItem.css";
 
-const TodoItem = ({ searchTodo, onCompletedTodo}) => {
+const TodoItem = ({ searchTodo, onCompletedTodo, deletedTodo}) => {
 
   return (
     <div className="div-content-todo">
@@ -27,7 +27,9 @@ const TodoItem = ({ searchTodo, onCompletedTodo}) => {
             >
               ✔
             </span>
-            <span className={`Icon Icon-delete`}>✘</span>
+            <span className={`Icon Icon-delete`}
+                  onClick={() => deletedTodo(todo.text)}
+            >✘</span>
           </div>
         </ul>
       ))}

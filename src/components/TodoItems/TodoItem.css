@@ -55,3 +55,7 @@
 .Icon-delete:hover {
   color: red;
 }
+
+.Icon-delete {
+  cursor: pointer;
+}
