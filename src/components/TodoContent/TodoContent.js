@@ -14,20 +14,31 @@ import { useState, useEffect } from "react";
 // localStorage.setItem("TODOS_V1", JSON.stringify(arrayTodos))
 // localStorage.removeItem("TODOS_V1")
 
-const TodoContent = () => {
-  const localStorageTodos = localStorage.getItem("TODOS_V1");
-
-  let parsedTodos;
-
+function useLocalStorage(itemName, initialValue) {
+  const localStorageTodos = localStorage.getItem(itemName);
+  
+  let parsedItem;
+  
   if (!localStorageTodos) {
-    localStorage.setItem("TODOS_V1", JSON.stringify([]));
-    parsedTodos = [];
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
   } else {
-    parsedTodos = JSON.parse(localStorageTodos)
+    parsedItem = JSON.parse(localStorageTodos)
   }
 
+  const [item, setItem] = useState(parsedItem);
+  
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem))
+    setItem(newItem)
+  }
+
+  return [item, saveItem];
+}
+
+const TodoContent = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [todos, setTodos] = useState(parsedTodos);
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
   const [count, setCount] = useState();
 
   useEffect(() => {
@@ -43,11 +54,6 @@ const TodoContent = () => {
   const searchTodo = todos.filter((todo) => {
     return todo.text.toLowerCase().includes(searchValue.toLowerCase());
   });
-
-  const saveTodos = (todosNew) => {
-    localStorage.setItem("TODOS_V1", JSON.stringify(todosNew))
-    setTodos(todosNew)
-  }
 
   const completeTodo = (text) => {
     const newTodos = [...todos];
