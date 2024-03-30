@@ -11,11 +11,10 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin-top: 30%;
+  margin-top: 20%;
 }
 
 .conteiner-first-todo {
-  /* background-color: #d3d8f5; */
   display: inline-block;
   width: 90%;
   justify-content: center;
