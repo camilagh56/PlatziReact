@@ -9,8 +9,8 @@ const TodoHeader = (props) => {
         <header>
           <span className="todoS">
             Has completado{" "}
-            <span className="span-todo">{props.status.tdosCompleted}</span> de{" "}
-            <span className="span-todo">{props.status.tdosTotal}</span> TODOs
+            <span className="span-todo">{props.completedTodos}</span> de{" "}
+            <span className="span-todo">{props.totalTodos}</span> TODOs
           </span>
         </header>
       </div>

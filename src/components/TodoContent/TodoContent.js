@@ -58,15 +58,10 @@ const TodoContent = () => {
   } = useLocalStorage("TODOS_V1", []);
   const [count, setCount] = useState();
 
-  useEffect(() => {
-    const completedTodos = todos.filter((todo) => !!todo.complete).length;
-    const totalTodos = todos.length;
-    const objCount = {
-      tdosCompleted: completedTodos,
-      tdosTotal: totalTodos,
-    };
-    setCount({ ...objCount });
-  }, []);
+  console.log(count, "aqui contador");
+
+  const completedTodos = todos.filter((todo) => !!todo.complete).length;
+  const totalTodos = todos.length;
 
   const searchTodo = todos.filter((todo) => {
     return todo.text.toLowerCase().includes(searchValue.toLowerCase());
@@ -86,21 +81,27 @@ const TodoContent = () => {
     saveTodos(newTodos);
   };
 
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({ text, complete: false });
+    saveTodos(newTodos);
+  };
+
   return (
     <div className="container-app">
-      {count && (
-        <TodoHeader
-          status={count}
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-        />
-      )}
+      <TodoHeader
+        completedTodos={completedTodos}
+        totalTodos={totalTodos}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
       <Container
         loading={loading}
         error={error}
         searchTodo={searchTodo}
         onCompletedTodo={completeTodo}
         deletedTodo={deletedTodo}
+        addTodo={addTodo}
       />
     </div>
   );

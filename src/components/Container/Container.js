@@ -1,7 +1,7 @@
 import { ContentTodoImg } from "../ContentTodoImg/ContentTodoImg";
 import "./Container.css";
 
-const Container = ({ searchTodo, onCompletedTodo, deletedTodo, loading, error }) => {
+const Container = ({ searchTodo, onCompletedTodo, deletedTodo, loading, error, addTodo }) => {
   return (
     <div className="container">
       <ContentTodoImg
@@ -10,6 +10,7 @@ const Container = ({ searchTodo, onCompletedTodo, deletedTodo, loading, error })
         searchTodo={searchTodo}
         onCompletedTodo={onCompletedTodo}
         deletedTodo={deletedTodo}
+        addTodo={addTodo}
       />
     </div>
   );

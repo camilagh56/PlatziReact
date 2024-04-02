@@ -10,12 +10,12 @@
 }
 
 .content-button-img img{
-  width: 50%;
-  height: auto;
+    width: 50%;
+    height: auto;
 }
 
 .content-button-img button {
-    margin-top: 2%;
+    margin-top: 5.5%;
     background-color: #D3D8F5;
     padding: 2%;
     font-family: "Montserrat", sans-serif;
@@ -23,7 +23,8 @@
     border: none;
     margin-bottom: 5%;
     font-size: 16px;
-    box-shadow: 5px 5px 10px rgb(192, 191, 191)
+    box-shadow: 5px 5px 10px rgb(192, 191, 191);
+    cursor: pointer;
 }
 
 .content-button-img button:hover {

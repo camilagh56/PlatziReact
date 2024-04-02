@@ -2,7 +2,6 @@
   /* background-color: brown; */
   width: 30%;
   margin-left: 20%;
-  /* background-color: red; */
 }
 
 .conteiner-loading {
@@ -11,12 +10,11 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin-top: 20%;
 }
 
 .conteiner-first-todo {
   display: inline-block;
-  width: 90%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
@@ -31,11 +29,11 @@
   text-shadow: 2px 2px #d3d8f5;
 }
 
-
 .loader {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 .loaderMiniContainer {
   display: flex;
@@ -113,6 +111,7 @@ line {
   padding: 15px;
   border-radius: 15px;
   box-shadow: 5px 5px 10px rgb(192, 191, 191);
+  margin-top: 0;
 }
 
 .li-text {
