@@ -11,6 +11,6 @@ Luego de realizar la tarea, podremos seleccionar como hecha y buscarla, y ya se 
 
 ![Captura de Pantalla 2024-05-14 a la(s) 11 29 06 a  m](https://github.com/camilagh56/ProyectTODOs/assets/127071473/db9bc5f5-6466-4f09-9451-a7d5d5fed3cf)
 
-
+Tecnologías utilizadas: React.js, Javascript, HTML, CSS.
 
 
